@@ -10,8 +10,13 @@
   "keywords": [
     "icons",
     "material",
-    "design",
+    "material-design",
     "videoamp"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "ignore": [
+    "*.json",
+    "*.md"
+    "docs",
+  ]
 }
