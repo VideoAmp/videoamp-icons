@@ -1,0 +1,17 @@
+{
+  "name": "videoamp-icons",
+  "homepage": "https://github.com/VideoAmp/videoamp-icons",
+  "authors": [
+    "Kaleho Naki <kaleho@videoamp.com>",
+    "David Ung <david.ung@videoamp.com>"
+  ],
+  "description": "A suite of Material Design inspired icons used in the VideoAmp Console.",
+  "main": "style.css",
+  "keywords": [
+    "icons",
+    "material",
+    "design",
+    "videoamp"
+  ],
+  "license": "MIT"
+}
