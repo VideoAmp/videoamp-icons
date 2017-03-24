@@ -16,7 +16,7 @@
   "license": "MIT",
   "ignore": [
     "*.json",
-    "*.md"
+    "*.md",
     "docs"
   ]
 }
