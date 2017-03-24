@@ -1,4 +1,4 @@
-# VideoAmp Icons
+# [VideoAmp Icons](https://videoamp.github.io/videoamp-icons/)
 A suite of [Material Design](https://material.io) inspired icons used in the VideoAmp Console.
 These icons were created by [Kaleho Naki](https://github.com/blueishh).
 
@@ -28,7 +28,7 @@ to have access to "videoamp-icons" font face:
 
 
 ## Glyphs
-View a list of available glyphs in the [demo](demo/demo.html) directory
+List of available glyphs can be found on the [home page](https://videoamp.github.io/videoamp-icons/)
 
 
 ## Contact
