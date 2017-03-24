@@ -28,5 +28,6 @@
   "bugs": {
     "url": "https://github.com/VideoAmp/videoamp-icons/issues"
   },
-  "homepage": "https://github.com/VideoAmp/videoamp-icons#readme"
+  "homepage": "https://github.com/VideoAmp/videoamp-icons#readme",
+  "dependencies": {}
 }
