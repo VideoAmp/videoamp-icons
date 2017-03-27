@@ -12,75 +12,19 @@ import './App.css';
 
 injectTapEventPlugin();
 
-const colors = [
-  'Red',
-  'Orange',
-  'Yellow',
-  'Green',
-  'Blue',
-  'Purple',
-  'Black',
-  'White',
-  'Edward',
-];
-
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  gridList: {
-    width: 500,
-    height: 450,
-    overflowY: 'auto',
-  },
-};
-
-const tilesData = [
-  {
-    img: 'https://placekitten.com/200/200',
-    title: 'Breakfast',
-    author: 'jill111',
-  },
-  {
-    img: 'https://placekitten.com/250/250',
-    title: 'Tasty burger',
-    author: 'pashminu',
-  },
-  {
-    img: 'https://placekitten.com/300/300',
-    title: 'Camera',
-    author: 'Danson67',
-  },
-  {
-    img: 'https://placekitten.com/350/350',
-    title: 'Morning',
-    author: 'fancycrave1',
-  },
-  {
-    img: 'https://placekitten.com/400/400',
-    title: 'Hats',
-    author: 'Hans',
-  },
-  {
-    img: 'https://placekitten.com/450/450',
-    title: 'Honey',
-    author: 'fancycravel',
-  },
-  {
-    img: 'https://placekitten.com/500/500',
-    title: 'Vegetables',
-    author: 'jill111',
-  },
-  {
-    img: 'https://placekitten.com/550/550',
-    title: 'Water plant',
-    author: 'BkrmadtyaKarki',
-  },
-];
-
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {value: 'Output'};
+
+  }
+
+  handleChange(e) {
+    this.setState({value: e.target.value});
+  }
+
   render() {
     return (
       <MuiThemeProvider>
@@ -91,16 +35,15 @@ class App extends Component {
           </div>
           <TextField
             floatingLabelText="Search"
-            value=""
+            onChange={this.handleChange}
           />
           <GridList
             cellHeight={180}
             style={styles.gridList}
           >
-            <Subheader>December</Subheader>
             {tilesData.map((tile) => (
               <GridTile
-                key={tile.img}
+                key={tile.id}
                 title={tile.title}
                 subtitle={<span>by <b>{tile.author}</b></span>}
                 actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
@@ -109,6 +52,7 @@ class App extends Component {
               </GridTile>
             ))}
           </GridList>
+          { this.state.value }
         </div>
 
 
@@ -116,5 +60,81 @@ class App extends Component {
     );
   }
 }
+
+// const colors = [
+//   'Red',
+//   'Orange',
+//   'Yellow',
+//   'Green',
+//   'Blue',
+//   'Purple',
+//   'Black',
+//   'White',
+//   'Edward',
+// ];
+
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    // width: 500,
+    // height: 450,
+    // overflowY: 'auto',
+  },
+};
+
+const tilesData = [
+  {
+    id: 1,
+    img: 'http://placehold.it/350x150',
+    title: 'Breakfast',
+    author: 'jill111',
+  },
+  {
+    id: 2,
+    img: 'http://placehold.it/350x150',
+    title: 'Tasty burger',
+    author: 'pashminu',
+  },
+  {
+    id: 3,
+    img: 'http://placehold.it/350x150',
+    title: 'Camera',
+    author: 'Danson67',
+  },
+  {
+    id: 4,
+    img: 'http://placehold.it/350x150',
+    title: 'Morning',
+    author: 'fancycrave1',
+  },
+  {
+    id: 5,
+    img: 'http://placehold.it/350x150',
+    title: 'Hats',
+    author: 'Hans',
+  },
+  {
+    id: 6,
+    img: 'http://placehold.it/350x150',
+    title: 'Honey',
+    author: 'fancycravel',
+  },
+  {
+    id: 7,
+    img: 'http://placehold.it/350x150',
+    title: 'Vegetables',
+    author: 'jill111',
+  },
+  {
+    id: 8,
+    img: 'http://placehold.it/350x150',
+    title: 'Water plant',
+    author: 'BkrmadtyaKarki',
+  },
+];
 
 export default App;
