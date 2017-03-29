@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import _ from 'lodash';
 
 import IconConstants from './IconConstants';
-import logo from './logo.png';
 import './App.css';
 import './fonts.css';
+import logo from './logo.png';
 
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
-import IconButton from 'material-ui/IconButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
 
 injectTapEventPlugin();
@@ -38,7 +39,7 @@ class App extends Component {
 
   render() {
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div>
           <AppBar
             title={
@@ -51,16 +52,22 @@ class App extends Component {
               />
             }
             style={{backgroundColor:'#242424'}}
-            iconElementLeft={<IconButton><ActionSearch /></IconButton>}
-            iconElementRight={
-              <img
-                src={logo}
-                className="va-logo"
-                alt="VideoAmp"
+            iconElementLeft={
+              <ActionSearch
+                className="va-appbar-icon"
               />
             }
+            iconElementRight={
+              <a href="https://videoamp.com">
+                <img
+                  src={logo}
+                  className="va-appbar-icon"
+                  alt="VideoAmp"
+                />
+              </a>
+            }
           />
-          <div>
+          <div className="va-container">
             <h2>VideoAmp Icons</h2>
             <p>A suite of Material Design inspired icons used in the VideoAmp Console.</p>
             <IconList items={this.getFilteredItems(this.state.items)} />

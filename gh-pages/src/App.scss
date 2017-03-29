@@ -1,0 +1,55 @@
+$background-hover: #232323;
+$icon-hover: #2979fa;
+$non-hover: #606060;
+
+.va-appbar-icon {
+    width: 24px;
+    height: 24px;
+    padding: 12px;
+}
+
+.va-container {
+    padding: 4em 5em;
+    ul, li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1.5em 0;
+    }
+
+    li {
+        display: inline-block;
+        text-align: center;
+        width: 128px;
+        max-width: 128px;
+        padding: 1em;
+        transition: all .25s ease;
+        color: $non-hover;
+        span {
+            font-size: 56px;
+        }
+
+        p {
+            font-size: 12px;
+            overflow-wrap: break-word;
+            color: $non-hover;
+            transition: all .25s ease;
+        }
+
+        &:hover {
+            background: $background-hover;
+            cursor: pointer;
+            transition: all .25s ease;
+            color: $icon-hover;
+            p {
+                color: #FFFFFF;
+                transition: all .25s ease;
+            }
+        }
+    }
+}

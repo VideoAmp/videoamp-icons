@@ -1,13 +1,45 @@
-.va-logo {
-    width: 24px;
-    height: 24px;
-    padding: 12px;
-}
+.va-appbar-icon {
+  width: 24px;
+  height: 24px;
+  padding: 12px; }
 
-.va-bar {
-    background-color: #242424;
-}
+.va-container {
+  padding: 4em 5em; }
 
-.va-input {
-    color: #FFFFFF;
-}
+.va-container ul, .va-container li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.va-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.5em 0; }
+
+.va-container li {
+  display: inline-block;
+  text-align: center;
+  width: 128px;
+  max-width: 128px;
+  padding: 1em;
+  transition: all .25s ease;
+  color: #606060; }
+
+.va-container li span {
+  font-size: 56px; }
+
+.va-container li p {
+  font-size: 12px;
+  overflow-wrap: break-word;
+  color: #606060;
+  transition: all .25s ease; }
+
+.va-container li:hover {
+  background: #232323;
+  cursor: pointer;
+  transition: all .25s ease;
+  color: #2979fa; }
+
+.va-container li:hover p {
+  color: #FFFFFF;
+  transition: all .25s ease; }
