@@ -34,12 +34,12 @@
   color: #606060;
   transition: all .25s ease; }
 
-.va-container li:hover {
-  background: #232323;
+.va-container li:hover, .va-container li.is-active {
+  background: #242424;
   cursor: pointer;
   transition: all .25s ease;
   color: #2979fa; }
 
-.va-container li:hover p {
+.va-container li:hover p, .va-container li.is-active p {
   color: #FFFFFF;
   transition: all .25s ease; }
