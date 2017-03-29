@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import _ from 'lodash';
 
 import IconConstants from './IconConstants';
+import logo from './logo.png';
 import './App.css';
 import './fonts.css';
 
@@ -11,7 +12,6 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
-import FlatButton from 'material-ui/FlatButton';
 
 injectTapEventPlugin();
 
@@ -43,14 +43,22 @@ class App extends Component {
           <AppBar
             title={
               <TextField
+                className="va-input"
                 hintText="Search"
                 fullWidth={true}
                 underlineShow={false}
                 onChange={this.handleChange}
               />
             }
+            style={{backgroundColor:'#242424'}}
             iconElementLeft={<IconButton><ActionSearch /></IconButton>}
-            iconElementRight={<FlatButton label="Logo" />}
+            iconElementRight={
+              <img
+                src={logo}
+                className="va-logo"
+                alt="VideoAmp"
+              />
+            }
           />
           <div>
             <h2>VideoAmp Icons</h2>
