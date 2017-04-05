@@ -1,6 +1,7 @@
 $primary-color: #606060;
+$icon-color: #2979ff;
 $background-hover: #242424;
-$icon-hover: #2979fa;
+$icon-hover: #ffd740;
 
 .va-appbar-icon {
     width: 24px;
@@ -29,7 +30,7 @@ $icon-hover: #2979fa;
         max-width: 128px;
         padding: 1em;
         transition: all .25s ease;
-        color: $primary-color;
+        color: $icon-color;
         span {
             font-size: 56px;
         }
