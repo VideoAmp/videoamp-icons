@@ -14,6 +14,7 @@ import SearchIcon from 'material-ui/svg-icons/action/search';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import Drawer from 'material-ui/Drawer';
+import Divider from 'material-ui/Divider';
 
 injectTapEventPlugin();
 
@@ -33,9 +34,9 @@ class App extends Component {
   }
 
   isActive = item => {
-    console.log("item", item)
-    console.log("this.state.activeItem", this.state.activeItem)
-    return (_.get(this.state, ["activeItem", "ligature"]) === item);
+    // console.log("item", item)
+    // console.log("this.state.activeItem", this.state.activeItem)
+    // return (_.get(this.state, ["activeItem", "ligature"]) === item);
     // console.log("this.state.activeItem", this.state.activeItem)
     // const activeItem = _.find(IconConstants, { ligature: item });
     // if (_.get(activeItem, "ligature") === item) {
@@ -52,7 +53,7 @@ class App extends Component {
   handleToggle = item =>
     evt => {
       if (this.state.open) {
-        this.setState({open: false});
+        this.setState({open: !this.state.open});
       } else {
         const activeItem = _.find(IconConstants, { ligature: item });
 
@@ -65,9 +66,13 @@ class App extends Component {
 
   getFilteredItems = (items) => items
     .filter(item => item.ligature.toLowerCase().includes(this.state.searchQuery))
-    .map(item => item.ligature)
+    // .map(item => item.ligature)
 
   render() {
+    // const ligature = _.get(this.state, ['activeItem', 'css_class']);
+    // const ligatureExample = `<span class='va-icon ${ligature}'}></span>`;
+    // console.log(ligatureExample);
+
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div>
@@ -103,12 +108,12 @@ class App extends Component {
             <ul>
               { this.getFilteredItems(this.state.items).map(item => (
                 <li
-                  key={item}
-                  className={this.isActive(item)}
-                  onTouchTap={this.handleToggle(item)}
+                  key={item.ligature}
+                  className={this.isActive(item.ligature)}
+                  onTouchTap={this.handleToggle(item.ligature)}
                 >
-                  <span className="va-icon">{item}</span>
-                  <p>{item}</p>
+                  <span className="va-icon">{item.ligature}</span>
+                  <p>{item.description}</p>
                 </li>
               )) }
             </ul>
@@ -117,23 +122,28 @@ class App extends Component {
             className="va-drawer"
             openSecondary={true}
             open={this.state.open}
-            width="280"
+            width={280}
+            containerStyle={{backgroundColor:'#FFFFFF', color:'#000000'}}
           >
             <div className="va-drawer-icon">
               <span className="va-icon">{_.get(this.state, ["activeItem", "ligature"])}</span>
             </div>
-            <h3>PREVIEW</h3>
-            <h3>HTML</h3>
-            <TextField
-              defaultValue="<span class='va-icon va-icon-channel_web'></span>"
-            />
+            <div className="va-drawer-body">
+              <h3>PREVIEW</h3>
+            </div>
 
+            <Divider style={{backgroundColor:'#E5E5E5'}}/>
 
-            <p>{_.get(this.state, ["activeItem", "ligature"])}</p>
-            <p>{_.get(this.state, ["activeItem", "css_class"])}</p>
-            <p>{_.get(this.state, ["activeItem", "unicode"])}</p>
-            <p>{_.get(this.state, ["activeItem", "description"])}</p>
+            <div className="va-drawer-body">
+              <h3>HTML</h3>
+              <p>{`<span class="va-icon ${_.get(this.state, ['activeItem', 'css_class'])}"></span>`}</p>
 
+              <h3>HTML (with ligature)</h3>
+              <p>{`<span class="va-icon">${_.get(this.state, ['activeItem', 'ligature'])}</span>`}</p>
+
+              <h3>CSS</h3>
+              <p>{`.va-icon-channel_web:before { content: "${_.get(this.state, ["activeItem", "unicode"])}"; }`}</p>
+            </div>
           </Drawer>
         </div>
       </MuiThemeProvider>

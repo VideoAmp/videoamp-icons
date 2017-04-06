@@ -27,7 +27,7 @@ ul {
   color: #2979ff; }
 
 .va-container li span {
-  font-size: 56px; }
+  font-size: 4em; }
 
 .va-container li p {
   font-size: 12px;
@@ -45,8 +45,17 @@ ul {
   color: #FFFFFF;
   transition: all .25s ease; }
 
+.va-drawer h3 {
+  font-size: 1em; }
+
 .va-drawer .va-drawer-icon {
   height: 160px;
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.va-drawer .va-drawer-icon .va-icon {
+  font-size: 4em; }
+
+.va-drawer .va-drawer-body {
+  padding: 1em; }

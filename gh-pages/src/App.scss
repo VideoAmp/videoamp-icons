@@ -32,7 +32,7 @@ yarn
         transition: all .25s ease;
         color: $icon-color;
         span {
-            font-size: 56px;
+            font-size: 4em;
         }
 
         p {
@@ -57,11 +57,19 @@ yarn
 }
 
 .va-drawer {
+    h3 {
+        font-size: 1em;
+    }
     .va-drawer-icon {
         height: 160px;
         display: flex;
         align-items: center;
         justify-content: center;
+        .va-icon {
+            font-size: 4em;
+        }
     }
-
+    .va-drawer-body {
+        padding: 1em;
+    }
 }
