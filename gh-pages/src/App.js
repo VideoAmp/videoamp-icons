@@ -15,6 +15,8 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 injectTapEventPlugin();
 
@@ -130,6 +132,32 @@ class App extends Component {
             </div>
             <div className="va-drawer-body">
               <h3>PREVIEW</h3>
+              <div>Size
+                <SelectField
+                  floatingLabelText="Frequency"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  labelStyle={{color:'#000000'}}
+                >
+                  <MenuItem value={1} primaryText="Never" />
+                  <MenuItem value={2} primaryText="Every Night" />
+                  <MenuItem value={3} primaryText="Weeknights" />
+                  <MenuItem value={4} primaryText="Weekends" />
+                  <MenuItem value={5} primaryText="Weekly" />
+                </SelectField>
+              </div>
+              <div>Icon
+                <TextField
+                  defaultValue="Default Icon"
+                  inputStyle={{color:'#000000'}}
+                />
+              </div>
+              <div>Background
+                <TextField
+                  defaultValue="Default Value"
+                  inputStyle={{color:'#000000'}}
+                />
+              </div>
             </div>
 
             <Divider style={{backgroundColor:'#E5E5E5'}}/>
@@ -138,11 +166,11 @@ class App extends Component {
               <h3>HTML</h3>
               <p>{`<span class="va-icon ${_.get(this.state, ['activeItem', 'css_class'])}"></span>`}</p>
 
-              <h3>HTML (with ligature)</h3>
+              <h3>HTML (using ligatures)</h3>
               <p>{`<span class="va-icon">${_.get(this.state, ['activeItem', 'ligature'])}</span>`}</p>
 
               <h3>CSS</h3>
-              <p>{`.va-icon-channel_web:before { content: "${_.get(this.state, ["activeItem", "unicode"])}"; }`}</p>
+              <p>{`.${_.get(this.state, ['activeItem', 'css_class'])}:before { content: "${_.get(this.state, ["activeItem", "unicode"])}"; }`}</p>
             </div>
           </Drawer>
         </div>
@@ -150,6 +178,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;
