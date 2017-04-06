@@ -117,8 +117,10 @@ class App extends Component {
             className="va-drawer"
             openSecondary={true}
             open={this.state.open}
+            width="280"
           >
             <div className="va-drawer-icon">
+              <span className="va-icon">{_.get(this.state, ["activeItem", "ligature"])}</span>
             </div>
             <h3>PREVIEW</h3>
             <h3>HTML</h3>

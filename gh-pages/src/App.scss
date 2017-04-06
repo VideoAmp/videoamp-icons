@@ -16,7 +16,7 @@ $icon-hover: #ffd740;
         padding: 0;
         list-style: none;
     }
-
+yarn
     ul {
         display: flex;
         flex-wrap: wrap;
@@ -58,7 +58,10 @@ $icon-hover: #ffd740;
 
 .va-drawer {
     .va-drawer-icon {
-
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 }
