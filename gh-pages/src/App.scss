@@ -77,7 +77,20 @@ $icon-hover: #ffd740;
         }
     }
     .twitter-picker {
-        margin: 1em auto;
-    }
+        margin: 1em 0 2em 0;
+        border: none !important;
+        box-shadow: none !important;
+        div:nth-child(3) {
+            padding: 0 !important;
+            div {
+                border-radius: 30px !important;
+                margin: 0px 5px 10px 0px !important;
+                &:nth-last-of-type(3) {
+                    border-radius: 4px 0px 0px 4px !important;
+                    margin: 0px !important;
+                }
+            }
 
+        }
+    }
 }

@@ -29,24 +29,13 @@ class App extends Component {
             items: IconConstants,
             searchQuery: "",
             open: false,
-            activeItem: "",
+            activeItem: {},
             activeItemBackgroundColor: "#40B2FF",
             activeItemColor: "#FFD11A",
         };
     }
 
-    isActive = (item) => {
-        // console.log("item", item)
-        // console.log("this.state.activeItem", this.state.activeItem)
-        // return (_.get(this.state, ["activeItem", "ligature"]) === item);
-        // console.log("this.state.activeItem", this.state.activeItem)
-        // const activeItem = _.find(IconConstants, { ligature: item });
-        // if (_.get(activeItem, "ligature") === item) {
-        //   return 'is-active';
-        // } else {
-        //   return '';
-        // }
-    }
+    isActive = item => ((_.get(this.state, ["activeItem", "ligature"]) === item) ? "is-active" : "");
 
     searchQuery = (evt) => {
         this.setState({ searchQuery: evt.target.value.toLowerCase() });
@@ -55,33 +44,42 @@ class App extends Component {
 
     iconColorPickerChange = (color) => {
         const hex = color.hex;
+
         this.setInputColor(this.iconTwitterPickerDOM, hex);
         this.setState({ activeItemColor: hex });
     }
 
     backgroundColorPickerChange = (color) => {
         const hex = color.hex;
+
         this.setInputColor(this.backgroundTwitterPickerDOM, hex);
         this.setState({ activeItemBackgroundColor: hex });
     }
 
     openDrawer = item =>
-      () => {
-          if (this.state.open) {
-              this.setState({ open: !this.state.open });
-          } else {
-              const activeItem = _.find(IconConstants, { ligature: item });
-
-              this.setState({
-                  activeItem,
-                  open: true,
-              });
-          }
-      }
+    () => {
+        const activeItem = _.find(IconConstants, { ligature: item });
+        if (this.state.open) {
+            if (item !== this.state.activeItem.ligature) {
+                this.setState({ activeItem });
+            } else {
+                this.setState({
+                    open: !this.state.open,
+                    activeItem: {},
+                });
+            }
+        } else {
+            this.setState({
+                activeItem,
+                open: true,
+            });
+        }
+    }
 
     setInputColor = (twitterPickerDOM, hex) => {
         const inputColor = twitterPickerDOM.querySelector("input");
         const color = _.replace(hex, "#", "");
+
         inputColor.setAttribute("value", color);
         inputColor.setAttribute("placeholder", color);
     }
@@ -157,60 +155,59 @@ class App extends Component {
                     className="va-drawer-icon"
                     style={{ backgroundColor: this.state.activeItemBackgroundColor }}
                     >
-                    <span
-                        className="va-icon"
-                        style={{ color: this.state.activeItemColor }}
-                    >
-                        {ligature}
-                    </span>
+                        <span
+                            className="va-icon"
+                            style={{ color: this.state.activeItemColor }}
+                        >
+                            {ligature}
+                        </span>
                     </div>
                     <div className="va-drawer-body">
-                    <h3>PREVIEW</h3>
+                        <h3>PREVIEW</h3>
 
-                    <div>
-                        Icon
-                        <TwitterPicker
-                        ref={(picker) => {
-                            this.iconTwitterPicker = picker;
-                            this.iconTwitterPickerDOM = ReactDOM.findDOMNode(this.iconTwitterPicker);
-                        }
-                        }
-                        width="205px"
-                        color="40B2FF"
-                        colors={["#40B2FF", "#45E5DD", "#50E578", "#FFD11A", "#FF8940"]}
-                        triangle="hide"
-                        onChange={this.iconColorPickerChange}
-                        />
-                    </div>
-                    <div>
-                        <span>Background</span>
-                        <TwitterPicker
-                        ref={(picker) => {
-                            this.backgroundTwitterPicker = picker;
-                            this.backgroundTwitterPickerDOM = ReactDOM.findDOMNode(this.backgroundTwitterPicker);
-                        }
-                        }
-                        width="205px"
-                        color="40B2FF"
-                        colors={["#40B2FF", "#45E5DD", "#50E578", "#FFD11A", "#FF8940"]}
-                        triangle="hide"
-                        onChange={this.backgroundColorPickerChange}
-                        />
-                    </div>
+                        <div>
+                            Icon
+                            <TwitterPicker
+                            ref={(picker) => {
+                                this.iconTwitterPicker = picker;
+                                this.iconTwitterPickerDOM = ReactDOM.findDOMNode(this.iconTwitterPicker);
+                            }
+                            }
+                            width="100%"
+                            color="40B2FF"
+                            colors={["#000000", "#F5F5F5", "#40B2FF", "#45E5DD", "#50E578", "#FFD11A", "#FF8940"]}
+                            triangle="hide"
+                            onChange={this.iconColorPickerChange}
+                            />
+                        </div>
+                        <div>
+                            <span>Background</span>
+                            <TwitterPicker
+                            ref={(picker) => {
+                                this.backgroundTwitterPicker = picker;
+                                this.backgroundTwitterPickerDOM = ReactDOM.findDOMNode(this.backgroundTwitterPicker);
+                            }
+                            }
+                            width="100%"
+                            color="40B2FF"
+                            colors={["#000000", "#F5F5F5", "#40B2FF", "#45E5DD", "#50E578", "#FFD11A", "#FF8940"]}
+                            triangle="hide"
+                            onChange={this.backgroundColorPickerChange}
+                            />
+                        </div>
                     </div>
 
                     <Divider style={{ backgroundColor: "#E5E5E5" }}/>
 
                     <div className="va-drawer-body">
+                        <h3>HTML</h3>
+                        <p>{`<span class="va-icon ${cssClass}"></span>`}</p>
 
-                    <h3>HTML</h3>
-                    <p>{`<span class="va-icon ${cssClass}"></span>`}</p>
+                        <h3>HTML (using ligatures)</h3>
+                        <p>{`<span class="va-icon">${ligature}</span>`}</p>
 
-                    <h3>HTML (using ligatures)</h3>
-                    <p>{`<span class="va-icon">${ligature}</span>`}</p>
-
-                    <h3>CSS</h3>
-                    <p>{`.${cssClass}:before { content: "${unicode}"; }`}</p>
+                        <h3>CSS</h3>
+                        <p>{`.${cssClass}:before { content: "${unicode}"; }`}</p>
                     </div>
                 </Drawer>
                 </div>
