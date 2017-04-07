@@ -17,6 +17,9 @@ import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import { TwitterPicker } from 'react-color';
+
+import ReactDOM from 'react-dom';
 
 injectTapEventPlugin();
 
@@ -33,6 +36,8 @@ class App extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
+    this.handleColorPickerChange = this.handleColorPickerChange.bind(this);
+    // this.twitterPickerDOM = null;
   }
 
   isActive = item => {
@@ -52,6 +57,10 @@ class App extends Component {
     this.setState({searchQuery: evt.target.value.toLowerCase()});
   }
 
+  handleColorPickerChange = (color, evt) => {
+    this.setTwitterInputColor(color.hex);
+  }
+
   handleToggle = item =>
     evt => {
       if (this.state.open) {
@@ -64,16 +73,27 @@ class App extends Component {
           open: true,
         })
       }
-    }
+  }
+
+  setTwitterInputColor = (hex) => {
+    const inputColor = this.twitterPickerDOM.querySelector("input");
+    inputColor.setAttribute("value", hex);
+    inputColor.setAttribute("placeholder", hex);
+  }
 
   getFilteredItems = (items) => items
     .filter(item => item.ligature.toLowerCase().includes(this.state.searchQuery))
     // .map(item => item.ligature)
 
+
+  componentDidMount() {
+    this.setTwitterInputColor(this.twitterPicker.props.color);
+  }
+
   render() {
-    // const ligature = _.get(this.state, ['activeItem', 'css_class']);
-    // const ligatureExample = `<span class='va-icon ${ligature}'}></span>`;
-    // console.log(ligatureExample);
+    const cssClass = _.get(this.state, ['activeItem', 'css_class']);
+    const ligature = _.get(this.state, ['activeItem', 'ligature'])
+    const unicode = _.get(this.state, ['activeItem', 'unicode']);
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
@@ -127,35 +147,38 @@ class App extends Component {
             width={280}
             containerStyle={{backgroundColor:'#FFFFFF', color:'#000000'}}
           >
-            <div className="va-drawer-icon">
-              <span className="va-icon">{_.get(this.state, ["activeItem", "ligature"])}</span>
+            <div
+              className="va-drawer-icon"
+              style={{backgroundColor: '#FF0000'}}
+            >
+              <span className="va-icon">{ligature}</span>
             </div>
             <div className="va-drawer-body">
               <h3>PREVIEW</h3>
-              <div>Size
-                <SelectField
-                  floatingLabelText="Frequency"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                  labelStyle={{color:'#000000'}}
-                >
-                  <MenuItem value={1} primaryText="Never" />
-                  <MenuItem value={2} primaryText="Every Night" />
-                  <MenuItem value={3} primaryText="Weeknights" />
-                  <MenuItem value={4} primaryText="Weekends" />
-                  <MenuItem value={5} primaryText="Weekly" />
-                </SelectField>
-              </div>
-              <div>Icon
-                <TextField
-                  defaultValue="Default Icon"
-                  inputStyle={{color:'#000000'}}
+
+              <div className="va-drawer-list-item">
+                Icon
+
+                <TwitterPicker
+                  ref={(TwitterPicker) => {
+                      this.twitterPicker = TwitterPicker;
+                      this.twitterPickerDOM = ReactDOM.findDOMNode(this.twitterPicker);
+                    }
+                  }
+                  width="205px"
+                  onChange={this.handleColorPickerChange}
+                  color="40B2FF"
+                  colors={['#40B2FF', '#45E5DD', '#50E578', '#FFD11A', '#FF8940']}
+                  triangle="hide"
                 />
               </div>
-              <div>Background
+              <div className="va-drawer-list-item">
+                <span>Background</span>
                 <TextField
                   defaultValue="Default Value"
+                  fullWidth={true}
                   inputStyle={{color:'#000000'}}
+                  underlineStyle={{backgroundColor:'#E5E5E5'}}
                 />
               </div>
             </div>
@@ -163,14 +186,15 @@ class App extends Component {
             <Divider style={{backgroundColor:'#E5E5E5'}}/>
 
             <div className="va-drawer-body">
+
               <h3>HTML</h3>
-              <p>{`<span class="va-icon ${_.get(this.state, ['activeItem', 'css_class'])}"></span>`}</p>
+              <p>{`<span class="va-icon ${cssClass}"></span>`}</p>
 
               <h3>HTML (using ligatures)</h3>
-              <p>{`<span class="va-icon">${_.get(this.state, ['activeItem', 'ligature'])}</span>`}</p>
+              <p>{`<span class="va-icon">${ligature}</span>`}</p>
 
               <h3>CSS</h3>
-              <p>{`.${_.get(this.state, ['activeItem', 'css_class'])}:before { content: "${_.get(this.state, ["activeItem", "unicode"])}"; }`}</p>
+              <p>{`.${cssClass}:before { content: "${unicode}"; }`}</p>
             </div>
           </Drawer>
         </div>
