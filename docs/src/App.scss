@@ -1,0 +1,117 @@
+@import "../node_modules/@videoamp/videoamp-icons/style.css";
+
+$primary-color: #606060;
+$icon-color: #2979ff;
+$background-hover: #242424;
+$icon-hover: #ffd740;
+
+.va-icons-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.va-appbar-icon {
+    width: 24px;
+    height: 24px;
+    padding: 12px;
+}
+
+.va-container {
+    padding: 4em 5em;
+    flex: 1;
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1.5em 0;
+    }
+
+    li {
+        display: inline-block;
+        text-align: center;
+        width: 128px;
+        max-width: 128px;
+        padding: 1em;
+        transition: all .25s ease;
+        color: $icon-color;
+        span {
+            font-size: 4em;
+        }
+
+        p {
+            font-size: 12px;
+            overflow-wrap: break-word;
+            color: $primary-color;
+            transition: all .25s ease;
+        }
+
+        &:hover,
+        &.is-active {
+            background: $background-hover;
+            cursor: pointer;
+            transition: all .25s ease;
+            color: $icon-hover;
+            p {
+                color: #FFFFFF;
+                transition: all .25s ease;
+            }
+        }
+    }
+
+    a {
+        display: block;
+        margin-top: 1em;
+    }
+}
+
+.va-drawer {
+    h3 {
+        font-size: 1em;
+    }
+    .va-drawer-icon {
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .va-icon {
+            font-size: 4em;
+        }
+    }
+    .va-drawer-body {
+        padding: 1em;
+        p {
+            color: #999999;
+            font-size: 12px;
+        }
+    }
+    .twitter-picker {
+        margin: 1em 0 2em 0;
+        border: none !important;
+        box-shadow: none !important;
+        div:nth-child(3) {
+            padding: 0 !important;
+            div {
+                border-radius: 30px !important;
+                margin: 0px 5px 10px 0px !important;
+                &:nth-last-of-type(3) {
+                    border-radius: 4px 0px 0px 4px !important;
+                    margin: 0px !important;
+                }
+            }
+
+        }
+    }
+}
+
+footer {
+    font-size: 12px;
+    text-align: center;
+    padding: 1em;
+}

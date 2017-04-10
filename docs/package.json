@@ -1,0 +1,39 @@
+{
+  "name": "videoamp-icons-docs",
+  "version": "0.1.0",
+  "private": true,
+  "author": "VideoAmp",
+  "contributors": [
+    "David Ung <david.ung@videoamp.com>"
+  ],
+  "homepage": "https://videoamp.github.io/videoamp-icons/",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
+    "react-scripts": "0.9.5"
+  },
+  "dependencies": {
+    "@videoamp/videoamp-icons": "^0.1.6",
+    "eslint-config-videoamp": "^2.1.0",
+    "lodash": "^4.17.4",
+    "material-ui": "~0.17.1",
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
+    "react": "^15.4.2",
+    "react-color": "^2.11.4",
+    "react-dom": "^15.4.2",
+    "react-tap-event-plugin": "^2.0.1"
+  },
+  "scripts": {
+    "build-css": "node-sass src/ -o src/",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}
