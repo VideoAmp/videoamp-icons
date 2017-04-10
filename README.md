@@ -4,20 +4,38 @@ These icons were created by [Kaleho Naki](https://github.com/blueishh).
 
 
 ## Installing
-Assuming you have [NodeJS](http://nodejs.org/), [NPM](https://www.npmjs.com/) and [Bower](http://bower.io/) installed globally just open up a terminal, navigate to your projects root directory and then execute
+Assuming you have [NodeJS](http://nodejs.org/), [NPM](https://www.npmjs.com/), [yarn](https://yarnpkg.com/en/), and [Bower](http://bower.io/) installed globally just open up a terminal, navigate to your projects root directory and then execute
 
+### Install via Bower
 ```
-# install via Bower
 $ bower install videoamp-icons --save
+```
+
+### Install via Yarn
+```
+$ yarn add @videoamp/videoamp-icons
 ```
 
 
 ## Usage
+
+### Usage via Bower
+
 There are several files in the `css/` subdirectory. Import them in your project
 to have access to "videoamp-icons" font face:
 
 * `videoamp-icons.css` - whole font family compiled to CSS
 * `videoamp-icons.less` - whole font family in LESS
+
+
+### Usage via Yarn
+
+Add this line into your CSS
+
+`@import "../node_modules/@videoamp/videoamp-icons/style.css";`
+
+If your project is WebPack configured, it should automatically compile into the correct folder when building your project
+
 
 ### HTML (using CSS classes)
 `<span class="va-icon va-icon-channel_web"></span>`
