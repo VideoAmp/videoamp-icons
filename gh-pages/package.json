@@ -2,6 +2,11 @@
   "name": "gh-pages",
   "version": "0.1.0",
   "private": true,
+  "author": "VideoAmp",
+  "contributors": [
+    "David Ung <david.ung@videoamp.com>"
+  ],
+  "homepage": "https://videoamp.github.io/videoamp-icons/",
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.1.3",
@@ -27,6 +32,8 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
