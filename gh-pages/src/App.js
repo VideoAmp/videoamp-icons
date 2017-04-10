@@ -16,7 +16,6 @@ import ReactDOM from "react-dom";
 
 import IconConstants from "./IconConstants";
 import "./App.css";
-import "./fonts.css";
 import Logo from "./logo.png";
 
 injectTapEventPlugin();
