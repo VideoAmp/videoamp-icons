@@ -1,12 +1,19 @@
+.va-icons-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
 .va-appbar-icon {
   width: 24px;
   height: 24px;
   padding: 12px; }
 
 .va-container {
-  padding: 4em 5em; }
+  padding: 4em 5em;
+  flex: 1; }
 
-.va-container ul, .va-container li {
+.va-container ul,
+.va-container li {
   margin: 0;
   padding: 0;
   list-style: none; }
@@ -44,6 +51,10 @@
   color: #FFFFFF;
   transition: all .25s ease; }
 
+.va-container a {
+  display: block;
+  margin-top: 1em; }
+
 .va-drawer h3 {
   font-size: 1em; }
 
@@ -78,3 +89,8 @@
 .va-drawer .twitter-picker div:nth-child(3) div:nth-last-of-type(3) {
   border-radius: 4px 0px 0px 4px !important;
   margin: 0px !important; }
+
+footer {
+  font-size: 12px;
+  text-align: center;
+  padding: 1em; }

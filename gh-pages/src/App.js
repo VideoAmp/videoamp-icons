@@ -101,7 +101,7 @@ class App extends Component {
 
         return (
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-                <div>
+                <div className="va-icons-container">
                 <AppBar
                     title={
                     <TextField
@@ -131,6 +131,10 @@ class App extends Component {
                 <div className="va-container">
                     <h2>VideoAmp Icons</h2>
                     <p>A suite of Material Design inspired icons used in the VideoAmp Console.</p>
+
+                    <Divider style={{ backgroundColor: "#E5E5E5" }}/>
+
+                    <a href="https://github.com/VideoAmp/videoamp-icons">DOWNLOAD FONT</a>
                     <ul>
                     { this.getFilteredItems(this.state.items).map(item => (
                         <li
@@ -210,6 +214,9 @@ class App extends Component {
                         <p>{`.${cssClass}:before { content: "${unicode}"; }`}</p>
                     </div>
                 </Drawer>
+                <footer>
+                    <a href="https://github.com/VideoAmp/videoamp-icons">GitHub Project</a>
+                </footer>
                 </div>
             </MuiThemeProvider>
         );
