@@ -6,7 +6,7 @@
   "contributors": [
     "David Ung <david.ung@videoamp.com>"
   ],
-  "homepage": "https://videoamp.github.io/videoamp-icons/",
+  "homepage": "http://icons.videoamp.design/",
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.1.3",
