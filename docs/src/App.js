@@ -131,7 +131,7 @@ class App extends Component {
                     <h2>VideoAmp Icons</h2>
                     <p>A suite of Material Design inspired icons used in the VideoAmp Console.</p>
 
-                    <Divider style={{ backgroundColor: "#E5E5E5" }}/>
+                    <Divider style={{ backgroundColor: "#303030" }}/>
 
                     <a href="https://github.com/VideoAmp/videoamp-icons">DOWNLOAD FONT</a>
                     <ul>
