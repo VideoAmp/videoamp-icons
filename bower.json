@@ -6,7 +6,14 @@
     "David Ung <david.ung@videoamp.com>"
   ],
   "description": "A suite of Material Design inspired icons used in the VideoAmp Console.",
-  "main": "style.css",
+  "main": [
+    "../css/style.css",
+    "../fonts/videoamp-icons.eot",
+    "../fonts/videoamp-icons.svg",
+    "../fonts/videoamp-icons.ttf",
+    "../fonts/videoamp-icons.woff",
+    "../fonts/videoamp-icons.woff2"
+  ],
   "keywords": [
     "icons",
     "material",
