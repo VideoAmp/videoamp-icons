@@ -1,6 +1,6 @@
 {
   "name": "@videoamp/videoamp-icons",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "A suite of Material Design inspired icons used in the VideoAmp Console.",
   "main": "style.css",
   "directories": {
