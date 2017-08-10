@@ -38,10 +38,10 @@ If your project is WebPack configured, it should automatically compile into the 
 
 
 ### HTML (using CSS classes)
-`<span class="va-icon va-icon-channel_web"></span>`
+`<span class="va-icon va-icon-channel_video"></span>`
 
 ### HTML (using ligatures)
-`<span class="va-icon">va_channel_web</span>`
+`<span class="va-icon">va_channel_video</span>`
 
 
 

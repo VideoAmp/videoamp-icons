@@ -35,7 +35,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.va-icon-channel_web:before {
+.va-icon-channel_video:before {
   content: "\e901";
 }
 .va-icon-channel_tv:before {
