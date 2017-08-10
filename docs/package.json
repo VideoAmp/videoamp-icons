@@ -15,7 +15,7 @@
     "react-scripts": "0.9.5"
   },
   "dependencies": {
-    "@videoamp/videoamp-icons": "^0.1.6",
+    "@videoamp/videoamp-icons": "^0.1.10",
     "eslint-config-videoamp": "^2.1.0",
     "lodash": "^4.17.4",
     "material-ui": "~0.17.1",

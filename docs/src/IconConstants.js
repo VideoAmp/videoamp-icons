@@ -4,7 +4,7 @@ export default [
         css_class: "va-icon_channel_video",
         unicode: "\\e901",
         html_entity: "&#xe901;",
-        description: "channel web",
+        description: "channel video",
     },
     {
         ligature: "va_channel_tv",
