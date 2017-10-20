@@ -1,4 +1,4 @@
-# [VideoAmp Icons Website](https://videoamp.github.io/videoamp-icons/)
+# [VideoAmp Icons Website](http://icons.videoamp.design)
 This is the front page to the [VideoAmp Icons](https://github.com/VideoAmp/videoamp-icons) repo. We use [React](https://facebook.github.io/react/) to develop the site and publish it to [GitHub Pages](http://pages.github.com/).
 
 

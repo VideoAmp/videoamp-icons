@@ -1,4 +1,4 @@
-# [VideoAmp Icons](https://videoamp.github.io/videoamp-icons/)
+# [VideoAmp Icons](http://icons.videoamp.design/)
 A suite of [Material Design](https://material.io) inspired icons used in the VideoAmp Console.
 These icons were created by [Kaleho Naki](https://github.com/blueishh).
 
@@ -46,7 +46,7 @@ If your project is WebPack configured, it should automatically compile into the 
 
 
 ## Glyphs
-List of available glyphs can be found on the [home page](https://videoamp.github.io/videoamp-icons/)
+List of available glyphs can be found on the [home page](http://icons.videoamp.design/)
 
 
 ## Contact
