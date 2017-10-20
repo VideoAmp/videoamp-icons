@@ -1,0 +1,9 @@
+{
+    "extends": [
+        "stylelint-config-videoamp"
+    ],
+    "ignoreFiles": [
+        "build/**/*",
+        "node_modules/**/*"
+    ]
+}
