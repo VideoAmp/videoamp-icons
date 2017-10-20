@@ -149,10 +149,12 @@ class App extends Component {
                 </div>
                 <Drawer
                     className="va-drawer"
+                    docked={false}
                     openSecondary={true}
                     open={this.state.open}
                     width={280}
                     containerStyle={{ backgroundColor: "#FFFFFF", color: "#000000" }}
+                    onRequestChange={open => this.setState({ open })}
                 >
                     <div
                     className="va-drawer-icon"
