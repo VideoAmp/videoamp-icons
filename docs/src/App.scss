@@ -1,14 +1,14 @@
 @import "../node_modules/@videoamp/videoamp-icons/css/style.css";
 
 $primary-color: #606060;
-$icon-color: #2979ff;
+$icon-color: #2979FF;
 $background-hover: #242424;
-$icon-hover: #ffd740;
+$icon-hover: #FFD740;
 
 .va-icons-container {
     display: flex;
-    min-height: 100vh;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .va-appbar-icon {
@@ -18,8 +18,8 @@ $icon-hover: #ffd740;
 }
 
 .va-container {
-    padding: 4em 5em;
     flex: 1;
+    padding: 4em 5em;
 
     ul,
     li {
@@ -36,34 +36,34 @@ $icon-hover: #ffd740;
 
     li {
         display: inline-block;
-        text-align: center;
         width: 128px;
         max-width: 128px;
         padding: 1em;
-        transition: all .25s ease;
+        transition: all 0.25s ease;
         color: $icon-color;
+        text-align: center;
 
         span {
             font-size: 4em;
         }
 
         p {
+            transition: all 0.25s ease;
+            color: $primary-color;
             font-size: 12px;
             overflow-wrap: break-word;
-            color: $primary-color;
-            transition: all .25s ease;
         }
 
         &:hover,
         &.is-active {
+            transition: all 0.25s ease;
             background: $background-hover;
-            cursor: pointer;
-            transition: all .25s ease;
             color: $icon-hover;
+            cursor: pointer;
 
             p {
+                transition: all 0.25s ease;
                 color: #FFFFFF;
-                transition: all .25s ease;
             }
         }
     }
@@ -80,10 +80,10 @@ $icon-hover: #ffd740;
     }
 
     .va-drawer-icon {
-        height: 160px;
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 160px;
 
         .va-icon {
             font-size: 4em;
@@ -100,7 +100,7 @@ $icon-hover: #ffd740;
     }
 
     .twitter-picker {
-        margin: 1em 0 2em 0;
+        margin: 1em 0 2em;
         border: none !important;
         box-shadow: none !important;
 
@@ -112,12 +112,12 @@ $icon-hover: #ffd740;
             padding: 0 !important;
 
             div {
+                margin: 0 5px 10px 0 !important;
                 border-radius: 30px !important;
-                margin: 0px 5px 10px 0px !important;
 
                 &:nth-last-of-type(3) {
-                    border-radius: 4px 0px 0px 4px !important;
-                    margin: 0px !important;
+                    margin: 0 !important;
+                    border-radius: 4px 0 0 4px !important;
                 }
             }
         }
@@ -125,7 +125,7 @@ $icon-hover: #ffd740;
 }
 
 footer {
+    padding: 1em;
     font-size: 12px;
     text-align: center;
-    padding: 1em;
 }
