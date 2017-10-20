@@ -206,13 +206,13 @@ class App extends Component {
 
                     <div className="va-drawer-body">
                         <h3>HTML</h3>
-                        <p>{`<span class="va-icon ${cssClass}"></span>`}</p>
+                        <code>{`<span class="va-icon ${cssClass}"></span>`}</code>
 
                         <h3>HTML (using ligatures)</h3>
-                        <p>{`<span class="va-icon">${ligature}</span>`}</p>
+                        <code>{`<span class="va-icon">${ligature}</span>`}</code>
 
                         <h3>CSS</h3>
-                        <p>{`.${cssClass}:before { content: "${unicode}"; }`}</p>
+                        <code>{`.${cssClass}:before { content: "${unicode}"; }`}</code>
                     </div>
                 </Drawer>
                 <footer>
